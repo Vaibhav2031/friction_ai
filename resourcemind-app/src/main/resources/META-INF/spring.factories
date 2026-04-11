@@ -1,0 +1,1 @@
+org.springframework.boot.EnvironmentPostProcessor=com.resourcemind.app.config.DotenvEnvironmentPostProcessor
