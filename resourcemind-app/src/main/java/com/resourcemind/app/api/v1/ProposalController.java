@@ -3,6 +3,7 @@ package com.resourcemind.app.api.v1;
 import com.resourcemind.app.api.dto.CreateProposalRequest;
 import com.resourcemind.app.api.dto.ProposalResponse;
 import com.resourcemind.app.service.ProposalService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+@SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequestMapping("/api/v1/proposals")
 public class ProposalController {

@@ -23,12 +23,7 @@ public class DotenvEnvironmentPostProcessor implements EnvironmentPostProcessor 
 	public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
 		Dotenv dotenv = Dotenv.configure().directory("./").ignoreIfMissing().load();
 		Map<String, Object> map = new HashMap<>();
-		dotenv.entries().forEach(e -> {
-			String key = e.getKey();
-			if (environment.getProperty(key) == null) {
-				map.put(key, e.getValue());
-			}
-		});
+		dotenv.entries().forEach(e -> map.put(e.getKey(), e.getValue()));
 		if (!map.isEmpty()) {
 			environment.getPropertySources().addFirst(new MapPropertySource(SOURCE_NAME, map));
 		}
