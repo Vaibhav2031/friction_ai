@@ -43,7 +43,7 @@ public class AuthUtil {
                 .subject(user.getUsername())
                 .claim("userId", user.getId().toString())
                 .issuedAt(new Date())
-                .expiration(new Date(now.getTime() + 60_000)) // Token valid for 10 seconds
+                .expiration(new Date(now.getTime() + 60_000)) // Token valid for 60 seconds
                 .signWith(getSecretKey())
                 .compact();
     }
